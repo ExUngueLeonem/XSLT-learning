@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
+<?xml-stylesheet href="./xslt_render.xml" type="text/xsl"?>
 <PlayList>
   <Track Id="1170056tuNb" Length="280">
     <Artist>Рихард Вагнер</Artist>

@@ -1,20 +1,15 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-  <xsl:transform xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="2.0">
+<xsl:transform xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="2.0">
   <xsl:output method="html" doctype-public="XSLT-compat" omit-xml-declaration="yes" encoding="UTF-8" indent="yes" />
-
-
   
   <xsl:template match="/">
-    <hmtl>
-      <head>
-        <title>New Version!</title>
-      </head>
-      <xsl:apply-templates/>
-    </hmtl>
+    Header
+    <xsl:apply-templates select="catalog"/>
+    <xsl:apply-templates select="catalog/book"/>
+    Footer
   </xsl:template>
 
   <xsl:template match="catalog">
-    
         <table border="1">
           <tr>
             <th align="left">Title</th>
@@ -40,7 +35,7 @@
               <xsl:choose>
                 <xsl:when test="genre = 'Fantasy'">
                   <td>
-                    <xsl:value-of select="user:discount(price)"/>
+                    <xsl:value-of select="price"/>
                   </td>
                 </xsl:when>
                 <xsl:otherwise>
@@ -52,9 +47,12 @@
             </tr>
           </xsl:for-each>
         </table>
-
-        
-
-
   </xsl:template>
+
+  <xsl:template match="catalog/book">
+    <h5>
+      <xsl:value-of select="title"/> - говно
+    </h5>
+  </xsl:template>
+
 </xsl:transform>
